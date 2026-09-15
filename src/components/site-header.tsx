@@ -34,7 +34,7 @@ export function SiteHeader() {
         <div
           className={`pointer-events-auto relative mx-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             compact
-              ? "h-14 max-w-xl rounded-full border border-white/15 bg-background/45 px-3 shadow-[0_10px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:max-w-lg md:h-[3.25rem] md:max-w-2xl md:px-4"
+              ? "h-14 max-w-xl rounded-2xl border border-white/15 bg-background/45 px-3 shadow-[0_10px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:max-w-lg md:h-[3.25rem] md:max-w-2xl md:px-4"
               : "h-16 w-full max-w-6xl rounded-2xl border border-white/10 bg-background/20 px-4 shadow-[0_4px_24px_rgba(0,0,0,0.15)] backdrop-blur-md md:h-[4.5rem] md:rounded-3xl md:px-6"
           }`}
         >
