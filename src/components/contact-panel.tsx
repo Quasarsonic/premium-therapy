@@ -1,5 +1,6 @@
 import { ContactMap } from "@/components/contact-map";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/social";
+import { SocialGlowButton } from "@/components/social-glow-button";
 import { ButtonLink } from "@/components/ui/button";
 import { site } from "@/lib/site-data";
 
@@ -46,24 +47,24 @@ export function ContactPanel() {
           </dl>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink
+            <SocialGlowButton
+              brand="whatsapp"
               href={site.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              variant="whatsapp"
             >
               <WhatsAppIcon className="h-[1.125rem] w-[1.125rem]" />
               WhatsApp
-            </ButtonLink>
-            <ButtonLink
+            </SocialGlowButton>
+            <SocialGlowButton
+              brand="instagram"
               href={site.instagramHref}
               target="_blank"
               rel="noopener noreferrer"
-              variant="instagram"
             >
               <InstagramIcon className="h-[1.125rem] w-[1.125rem]" />
               Instagram
-            </ButtonLink>
+            </SocialGlowButton>
             <ButtonLink href={`mailto:${site.email}`} variant="outline">
               Scrivi una email
             </ButtonLink>

@@ -21,6 +21,24 @@
   --shadow-glow: 0 0 40px rgba(212, 255, 0, 0.25);
 }
 
+/*
+ * No sideways panning on mobile. Decorative overlays (the BorderGlow halo)
+ * sit outside their card and would otherwise widen the layout viewport.
+ * `clip` where supported so neither element becomes a scroll container;
+ * `hidden` as the fallback for older Safari.
+ */
+html,
+body {
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -40,6 +58,22 @@ body {
 
 .shadow-glow {
   box-shadow: var(--shadow-glow);
+}
+
+/* Instagram brand ramp: yellow → orange → magenta → purple → blue */
+.bg-instagram-brand {
+  background-image: radial-gradient(
+    circle at 12% 120%,
+    #ffdd55 0%,
+    #ffb43c 12%,
+    #ff7a3d 24%,
+    #fd5949 36%,
+    #e1306c 52%,
+    #c13584 66%,
+    #833ab4 80%,
+    #5851db 91%,
+    #405de6 100%
+  );
 }
 
 ::selection {

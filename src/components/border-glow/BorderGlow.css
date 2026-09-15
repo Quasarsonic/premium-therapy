@@ -71,11 +71,14 @@
   transition: opacity 0.08s ease-out;
 }
 
-.border-glow-card:not(:hover):not(.sweep-active)::before,
-.border-glow-card:not(:hover):not(.sweep-active)::after,
-.border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
-  opacity: 0;
-  transition: opacity 0.45s ease-in-out;
+/* Only hide the resting glow where a pointer can actually reveal it again. */
+@media (hover: hover) {
+  .border-glow-card:not(:hover):not(.sweep-active):not(.border-glow-card--ambient)::before,
+  .border-glow-card:not(:hover):not(.sweep-active):not(.border-glow-card--ambient)::after,
+  .border-glow-card:not(:hover):not(.sweep-active):not(.border-glow-card--ambient) > .edge-light {
+    opacity: 0;
+    transition: opacity 0.45s ease-in-out;
+  }
 }
 
 .border-glow-card::before {
@@ -190,4 +193,86 @@
   z-index: 1;
   border-radius: inherit;
   height: 100%;
+}
+
+/*
+ * On phones the cards run nearly edge to edge, so a wide halo would be sliced
+ * off by the viewport. Cap the bleed to roughly the page gutter. The component
+ * sets --glow-padding inline, hence !important.
+ */
+@media (max-width: 640px) {
+  .border-glow-card {
+    --glow-padding: 16px !important;
+  }
+}
+
+/*
+ * Ambient mode: a slow sweep that runs on its own, for surfaces that never
+ * receive a pointer (the map is a cross-origin iframe, so pointermove never
+ * reaches the card). Registering --cursor-angle lets it interpolate instead
+ * of snapping; --edge-proximity is written inline by the component on pointer
+ * leave, so it has to be forced here.
+ */
+@property --cursor-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 45deg;
+}
+
+/* Registered so it can be animated rather than snapping between keyframes. */
+@property --edge-proximity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.border-glow-card--ambient {
+  --edge-proximity: 100 !important;
+  animation: border-glow-orbit var(--ambient-duration, 14s) linear infinite;
+}
+
+@keyframes border-glow-orbit {
+  from {
+    --cursor-angle: 0deg;
+  }
+  to {
+    --cursor-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .border-glow-card--ambient {
+    animation: none;
+  }
+}
+
+/*
+ * Touch devices never hover, so every card drives itself: one full-strength
+ * orbit, then it settles to a thinner glow that stays for good. Animating
+ * --edge-proximity also outranks the inline value the pointer handlers write,
+ * so a stray tap can't switch the glow off.
+ */
+@media (hover: none) {
+  .border-glow-card {
+    animation:
+      border-glow-orbit var(--ambient-duration, 14s) linear infinite,
+      border-glow-settle var(--ambient-duration, 14s) linear 1 forwards;
+  }
+}
+
+@keyframes border-glow-settle {
+  0%,
+  85% {
+    --edge-proximity: 100;
+  }
+  100% {
+    --edge-proximity: 55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: none) {
+  .border-glow-card {
+    --edge-proximity: 55 !important;
+    animation: none;
+  }
 }
