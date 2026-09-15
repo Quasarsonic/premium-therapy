@@ -9,19 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
           <Link href="/" className="inline-flex flex-col items-start gap-4">
-            {/*
-              The logo's centre spheres are solid black, so they disappear
-              against the dark surface. A soft white halo behind gives them
-              something to read against (and the blend has to be off, or
-              lighten would drop them into the background again).
-            */}
-            <span className="relative inline-flex items-center justify-center">
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 -m-3 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.28),rgba(255,255,255,0.10)_45%,transparent_72%)] blur-lg"
-              />
-              <SiteLogo size="xl" blend={false} className="relative" />
-            </span>
+            <SiteLogo size="xl" variant="light" />
             <span className="font-display text-sm font-semibold tracking-tight">
               Premium Therapy
             </span>
