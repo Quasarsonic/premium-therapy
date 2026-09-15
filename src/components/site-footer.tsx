@@ -49,6 +49,16 @@ export function SiteFooter() {
                 {site.email}
               </a>
             </li>
+            <li>
+              <a
+                href={site.instagramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent"
+              >
+                @premiumtherapy.ch
+              </a>
+            </li>
             <li className="text-muted">{site.studioAddress}</li>
           </ul>
         </div>

@@ -52,8 +52,16 @@ export function ContactPanel() {
           </dl>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={site.whatsappHref} target="_blank">
+            <ButtonLink href={site.whatsappHref} target="_blank" rel="noopener noreferrer">
               WhatsApp
+            </ButtonLink>
+            <ButtonLink
+              href={site.instagramHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+            >
+              Instagram
             </ButtonLink>
             <ButtonLink href={`mailto:${site.email}`} variant="outline">
               Scrivi una email

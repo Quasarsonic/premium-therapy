@@ -6,6 +6,7 @@ export const site = {
   phone: "+41 76 202 60 63",
   phoneHref: "tel:+41762026063",
   whatsappHref: "https://wa.me/41762026063",
+  instagramHref: "https://www.instagram.com/premiumtherapy.ch/",
   email: "gregoriodrei@gmail.com",
   emailAlt: "info@premiumtherapy.ch",
   studioAddress: "Via Giuseppe Cattori 3, Paradiso 6900, Ticino",
