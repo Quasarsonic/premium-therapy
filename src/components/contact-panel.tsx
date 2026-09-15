@@ -1,3 +1,4 @@
+import { ContactMap } from "@/components/contact-map";
 import { ButtonLink } from "@/components/ui/button";
 import { site } from "@/lib/site-data";
 
@@ -5,15 +6,7 @@ export function ContactPanel() {
   return (
     <section className="border-y border-white/10 bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6 md:py-20">
-        <div className="overflow-hidden rounded-2xl border border-white/10">
-          <iframe
-            title="Mappa studio Premium Therapy"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&output=embed`}
-            className="h-full min-h-[320px] w-full grayscale invert"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+        <ContactMap />
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
@@ -52,14 +45,19 @@ export function ContactPanel() {
           </dl>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={site.whatsappHref} target="_blank" rel="noopener noreferrer">
+            <ButtonLink
+              href={site.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="whatsapp"
+            >
               WhatsApp
             </ButtonLink>
             <ButtonLink
               href={site.instagramHref}
               target="_blank"
               rel="noopener noreferrer"
-              variant="outline"
+              variant="instagram"
             >
               Instagram
             </ButtonLink>

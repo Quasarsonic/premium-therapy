@@ -29,7 +29,7 @@ export function Button({
 }
 
 type ButtonLinkProps = ComponentPropsWithoutRef<typeof Link> & {
-  variant?: "primary" | "ghost" | "outline";
+  variant?: "primary" | "ghost" | "outline" | "whatsapp" | "instagram";
 };
 
 export function ButtonLink({
@@ -42,6 +42,10 @@ export function ButtonLink({
     ghost: "bg-transparent text-foreground hover:text-accent",
     outline:
       "border border-white/20 bg-white/5 text-foreground hover:border-accent/60 hover:text-accent",
+    whatsapp:
+      "border border-[#20bd5a]/40 bg-[#25D366] text-white shadow-none hover:brightness-110 focus-visible:outline-[#25D366]",
+    instagram:
+      "border border-white/10 bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] text-white shadow-none hover:brightness-110 focus-visible:outline-[#dd2a7b]",
   };
 
   return (

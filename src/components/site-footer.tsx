@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteLogo } from "@/components/site-logo";
 import { navLinks, site } from "@/lib/site-data";
 
 export function SiteFooter() {
@@ -6,9 +7,12 @@ export function SiteFooter() {
     <footer className="border-t border-white/10 bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
-          <p className="font-display text-sm font-bold tracking-[0.18em]">
-            PREMIUM THERAPY
-          </p>
+          <Link href="/" className="inline-flex items-center gap-3">
+            <SiteLogo size="lg" />
+            <span className="font-display text-sm font-semibold tracking-tight">
+              Premium Therapy
+            </span>
+          </Link>
           <p className="mt-3 text-sm text-muted">
             {site.owner}
             <br />
