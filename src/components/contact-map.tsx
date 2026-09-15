@@ -19,14 +19,6 @@ export function ContactMap() {
 
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(212,255,0,0.06),transparent_40%)]" />
 
-          <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/90 px-3 py-1.5 text-xs font-medium text-zinc-900 shadow-sm backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Studio attivo
-          </div>
-
           <a
             href={mapsUrl}
             target="_blank"
