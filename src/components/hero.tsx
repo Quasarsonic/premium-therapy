@@ -11,8 +11,6 @@ export function Hero() {
             "linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.92) 65%, rgb(5,5,5) 100%), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2400&q=80')",
         }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-40" />
-
       <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 md:px-6 md:pb-0">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-accent">
           {site.tagline}

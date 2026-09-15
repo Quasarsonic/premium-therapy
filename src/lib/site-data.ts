@@ -24,7 +24,7 @@ export const hero = {
   subtitle:
     "Il punto di riferimento in Ticino per massaggi sportivi, terapeutici e relax",
   description:
-    "Grazie alla nostra esperienza pluriennale, offriamo trattamenti mirati e personalizzati per aiutarti a raggiungere i tuoi obiettivi in modo rapido ed efficace — trattamenti di alta qualità pensati per chi desidera ritrovare equilibrio, sollievo e nuova energia.",
+    "Grazie alla nostra esperienza pluriennale, offriamo trattamenti mirati e personalizzati per aiutarti a raggiungere i tuoi obiettivi in modo rapido ed efficace, con trattamenti di alta qualità pensati per chi desidera ritrovare equilibrio, sollievo e nuova energia.",
   cta: "Di cosa hai bisogno: noi ti offriamo la soluzione ideale.",
 } as const;
 
@@ -41,7 +41,7 @@ export const pillars = [
   {
     title: "Esperienza sportiva",
     description:
-      "Collaborazioni con squadre professionistiche e atleti — trattamenti pensati per performance e recupero.",
+      "Collaborazioni con squadre professionistiche e atleti, con trattamenti pensati per performance e recupero.",
   },
   {
     title: "Percorsi personalizzati",

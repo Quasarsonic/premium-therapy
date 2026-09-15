@@ -1,4 +1,5 @@
 import { ContactMap } from "@/components/contact-map";
+import { InstagramIcon, WhatsAppIcon } from "@/components/icons/social";
 import { ButtonLink } from "@/components/ui/button";
 import { site } from "@/lib/site-data";
 
@@ -51,6 +52,7 @@ export function ContactPanel() {
               rel="noopener noreferrer"
               variant="whatsapp"
             >
+              <WhatsAppIcon className="h-[1.125rem] w-[1.125rem]" />
               WhatsApp
             </ButtonLink>
             <ButtonLink
@@ -59,6 +61,7 @@ export function ContactPanel() {
               rel="noopener noreferrer"
               variant="instagram"
             >
+              <InstagramIcon className="h-[1.125rem] w-[1.125rem]" />
               Instagram
             </ButtonLink>
             <ButtonLink href={`mailto:${site.email}`} variant="outline">

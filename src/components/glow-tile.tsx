@@ -5,15 +5,17 @@ import BorderGlow, { type BorderGlowProps } from "@/components/border-glow/Borde
 
 /** Premium Therapy theme defaults for React Bits BorderGlow tiles */
 export const tileGlowDefaults = {
-  edgeSensitivity: 28,
-  glowColor: "72 100 65",
+  edgeSensitivity: 16,
+  glowColor: "72 100 72",
   backgroundColor: "#0f0f10",
   borderRadius: 16,
-  glowRadius: 32,
-  glowIntensity: 1.05,
-  coneSpread: 22,
+  glowRadius: 42,
+  glowIntensity: 1.45,
+  coneSpread: 30,
   colors: ["#d4ff00", "#34d399", "#22d3ee"],
-  fillOpacity: 0.45,
+  fillOpacity: 0.62,
+  colorSensitivityOffset: 8,
+  proximityExponent: 0.48,
 } as const satisfies Partial<BorderGlowProps>;
 
 type GlowTileProps = {

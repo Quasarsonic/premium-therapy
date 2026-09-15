@@ -7,17 +7,12 @@ export function SiteFooter() {
     <footer className="border-t border-white/10 bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
-          <Link href="/" className="inline-flex items-center gap-3">
-            <SiteLogo size="lg" />
+          <Link href="/" className="inline-flex flex-col items-start gap-4">
+            <SiteLogo size="xl" />
             <span className="font-display text-sm font-semibold tracking-tight">
               Premium Therapy
             </span>
           </Link>
-          <p className="mt-3 text-sm text-muted">
-            {site.owner}
-            <br />
-            {site.location}
-          </p>
         </div>
 
         <div>

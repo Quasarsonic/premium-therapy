@@ -126,6 +126,9 @@ export type BorderGlowProps = {
   animated?: boolean;
   colors?: string[];
   fillOpacity?: number;
+  colorSensitivityOffset?: number;
+  proximityExponent?: number;
+  glowMode?: "edge" | "full";
 };
 
 export default function BorderGlow({
@@ -141,6 +144,9 @@ export default function BorderGlow({
   animated = false,
   colors = ["#c084fc", "#f472b6", "#38bdf8"],
   fillOpacity = 0.5,
+  colorSensitivityOffset = 12,
+  proximityExponent = 0.52,
+  glowMode = "edge",
 }: BorderGlowProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -186,14 +192,35 @@ export default function BorderGlow({
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      const edge = getEdgeProximity(card, x, y);
       const angle = getCursorAngle(card, x, y);
 
-      card.style.setProperty("--edge-proximity", `${(edge * 100).toFixed(3)}`);
+      if (glowMode === "full") {
+        card.style.setProperty("--edge-proximity", "100");
+      } else {
+        const rawEdge = getEdgeProximity(card, x, y);
+        const edge = Math.min(
+          1,
+          Math.pow(rawEdge, proximityExponent) * 1.08 + rawEdge * 0.12,
+        );
+        card.style.setProperty("--edge-proximity", `${(edge * 100).toFixed(3)}`);
+      }
+
       card.style.setProperty("--cursor-angle", `${angle.toFixed(3)}deg`);
     },
-    [getEdgeProximity, getCursorAngle],
+    [getEdgeProximity, getCursorAngle, proximityExponent, glowMode],
   );
+
+  const handlePointerEnter = useCallback(() => {
+    const card = cardRef.current;
+    if (!card || glowMode !== "full") return;
+    card.style.setProperty("--edge-proximity", "100");
+  }, [glowMode]);
+
+  const handlePointerLeave = useCallback(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.setProperty("--edge-proximity", "0");
+  }, []);
 
   useEffect(() => {
     if (!animated || !cardRef.current) return;
@@ -252,6 +279,7 @@ export default function BorderGlow({
     "--glow-padding": `${glowRadius}px`,
     "--cone-spread": coneSpread,
     "--fill-opacity": fillOpacity,
+    "--color-sensitivity-offset": colorSensitivityOffset,
     ...glowVars,
     ...buildGradientVars(colors),
   } as CSSProperties;
@@ -259,8 +287,10 @@ export default function BorderGlow({
   return (
     <div
       ref={cardRef}
+      onPointerEnter={handlePointerEnter}
       onPointerMove={handlePointerMove}
-      className={`border-glow-card${lightSurface ? " border-glow-card--light" : ""} ${className}`}
+      onPointerLeave={handlePointerLeave}
+      className={`border-glow-card${lightSurface ? " border-glow-card--light" : ""}${glowMode === "full" ? " border-glow-card--full" : ""} ${className}`}
       style={style}
     >
       <span className="edge-light" aria-hidden />
