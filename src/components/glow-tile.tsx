@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import BorderGlow, { type BorderGlowProps } from "@/components/border-glow/BorderGlow";
+import { brandGlowColors } from "@/lib/glow-theme";
 
 /** Premium Therapy theme defaults for React Bits BorderGlow tiles */
 export const tileGlowDefaults = {
@@ -12,7 +13,7 @@ export const tileGlowDefaults = {
   glowRadius: 42,
   glowIntensity: 1.45,
   coneSpread: 30,
-  colors: ["#d4ff00", "#34d399", "#22d3ee"],
+  colors: [...brandGlowColors],
   fillOpacity: 0.62,
   colorSensitivityOffset: 8,
   proximityExponent: 0.48,

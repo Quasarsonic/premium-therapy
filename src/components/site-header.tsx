@@ -3,8 +3,26 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import GradientText from "@/components/gradient-text/GradientText";
 import { SiteLogo } from "@/components/site-logo";
+import { brandGradientTextColors } from "@/lib/glow-theme";
 import { navLinks } from "@/lib/site-data";
+
+const prenotaGradientColors = [...brandGradientTextColors];
+
+function PrenotaLabel({ compact }: { compact: boolean }) {
+  return (
+    <GradientText
+      colors={prenotaGradientColors}
+      animationSpeed={4}
+      yoyo={false}
+      showBorder={false}
+      className="gradient-text--inline"
+    >
+      <span className={compact ? "text-xs" : "text-sm"}>Prenota</span>
+    </GradientText>
+  );
+}
 
 const SCROLL_THRESHOLD = 56;
 
@@ -86,13 +104,13 @@ export function SiteHeader() {
           <div className="relative z-10 flex shrink-0 items-center gap-2">
             <Link
               href="/contatti"
-              className={`hidden items-center justify-center rounded-full bg-gradient-to-r from-zinc-900/90 via-zinc-800/90 to-zinc-950/90 font-medium text-white ring-1 ring-white/10 transition-all duration-500 hover:ring-accent/40 md:inline-flex ${
+              className={`hidden items-center justify-center rounded-full bg-gradient-to-r from-zinc-900/90 via-zinc-800/90 to-zinc-950/90 font-medium ring-1 ring-white/10 transition-all duration-500 hover:ring-accent/40 md:inline-flex ${
                 compact
                   ? "px-4 py-2 text-xs"
                   : "px-5 py-2.5 text-sm"
               }`}
             >
-              Prenota
+              <PrenotaLabel compact={compact} />
             </Link>
 
             <button
@@ -146,9 +164,9 @@ export function SiteHeader() {
               })}
               <Link
                 href="/contatti"
-                className="mt-2 inline-flex justify-center rounded-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-950 px-5 py-3 text-sm font-medium text-white ring-1 ring-white/10"
+                className="mt-2 inline-flex justify-center rounded-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-950 px-5 py-3 text-sm font-medium ring-1 ring-white/10"
               >
-                Prenota
+                <PrenotaLabel compact={false} />
               </Link>
             </nav>
           </div>
