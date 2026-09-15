@@ -42,6 +42,22 @@ body {
   box-shadow: var(--shadow-glow);
 }
 
+/* Instagram brand ramp: yellow → orange → magenta → purple → blue */
+.bg-instagram-brand {
+  background-image: radial-gradient(
+    circle at 12% 120%,
+    #ffdd55 0%,
+    #ffb43c 12%,
+    #ff7a3d 24%,
+    #fd5949 36%,
+    #e1306c 52%,
+    #c13584 66%,
+    #833ab4 80%,
+    #5851db 91%,
+    #405de6 100%
+  );
+}
+
 ::selection {
   background: color-mix(in srgb, var(--accent) 35%, transparent);
   color: var(--foreground);
