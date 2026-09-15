@@ -191,3 +191,14 @@
   border-radius: inherit;
   height: 100%;
 }
+
+/*
+ * On phones the cards run nearly edge to edge, so a wide halo would be sliced
+ * off by the viewport. Cap the bleed to roughly the page gutter. The component
+ * sets --glow-padding inline, hence !important.
+ */
+@media (max-width: 640px) {
+  .border-glow-card {
+    --glow-padding: 16px !important;
+  }
+}

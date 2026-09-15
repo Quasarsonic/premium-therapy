@@ -21,6 +21,24 @@
   --shadow-glow: 0 0 40px rgba(212, 255, 0, 0.25);
 }
 
+/*
+ * No sideways panning on mobile. Decorative overlays (the BorderGlow halo)
+ * sit outside their card and would otherwise widen the layout viewport.
+ * `clip` where supported so neither element becomes a scroll container;
+ * `hidden` as the fallback for older Safari.
+ */
+html,
+body {
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
