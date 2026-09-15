@@ -3,6 +3,11 @@ import Image from "next/image";
 type SiteLogoProps = {
   size?: "sm" | "md" | "lg" | "xl";
   className?: string;
+  /**
+   * `mix-blend-lighten` drops the logo's black centre spheres into the dark
+   * background. Turn it off where the logo sits on its own backdrop.
+   */
+  blend?: boolean;
 };
 
 const sizes = {
@@ -12,7 +17,11 @@ const sizes = {
   xl: { box: "h-24 w-auto max-w-[9rem] md:h-28 md:max-w-[10.5rem]", px: 168, py: 101 },
 } as const;
 
-export function SiteLogo({ size = "md", className = "" }: SiteLogoProps) {
+export function SiteLogo({
+  size = "md",
+  className = "",
+  blend = true,
+}: SiteLogoProps) {
   const { box, px, py } = sizes[size];
 
   return (
@@ -21,7 +30,7 @@ export function SiteLogo({ size = "md", className = "" }: SiteLogoProps) {
       alt="Premium Therapy"
       width={px}
       height={py}
-      className={`shrink-0 object-contain mix-blend-lighten ${box} ${className}`}
+      className={`shrink-0 object-contain ${blend ? "mix-blend-lighten" : ""} ${box} ${className}`}
       priority
     />
   );

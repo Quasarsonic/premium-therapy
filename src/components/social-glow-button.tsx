@@ -33,14 +33,16 @@ export function SocialGlowButton({
   return (
     <BorderGlow
       {...brandGlow[brand]}
+      ambient
+      ambientDuration={16}
       glowMode="full"
       edgeSensitivity={0}
       colorSensitivityOffset={0}
       borderRadius={999}
-      glowRadius={30}
-      glowIntensity={1.8}
+      glowRadius={16}
+      glowIntensity={1.25}
       coneSpread={30}
-      fillOpacity={0.55}
+      fillOpacity={0.4}
       className={`inline-grid shrink-0 ${className}`}
     >
       <ButtonLink variant={brand} {...linkProps}>

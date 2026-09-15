@@ -124,6 +124,8 @@ export type BorderGlowProps = {
   glowIntensity?: number;
   coneSpread?: number;
   animated?: boolean;
+  ambient?: boolean;
+  ambientDuration?: number;
   colors?: string[];
   fillOpacity?: number;
   colorSensitivityOffset?: number;
@@ -142,6 +144,8 @@ export default function BorderGlow({
   glowIntensity = 1.0,
   coneSpread = 25,
   animated = false,
+  ambient = false,
+  ambientDuration = 14,
   colors = ["#c084fc", "#f472b6", "#38bdf8"],
   fillOpacity = 0.5,
   colorSensitivityOffset = 12,
@@ -278,6 +282,7 @@ export default function BorderGlow({
     "--border-radius": `${borderRadius}px`,
     "--glow-padding": `${glowRadius}px`,
     "--cone-spread": coneSpread,
+    "--ambient-duration": `${ambientDuration}s`,
     "--fill-opacity": fillOpacity,
     "--color-sensitivity-offset": colorSensitivityOffset,
     ...glowVars,
@@ -290,7 +295,7 @@ export default function BorderGlow({
       onPointerEnter={handlePointerEnter}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className={`border-glow-card${lightSurface ? " border-glow-card--light" : ""}${glowMode === "full" ? " border-glow-card--full" : ""} ${className}`}
+      className={`border-glow-card${lightSurface ? " border-glow-card--light" : ""}${glowMode === "full" ? " border-glow-card--full" : ""}${ambient ? " border-glow-card--ambient" : ""} ${className}`}
       style={style}
     >
       <span className="edge-light" aria-hidden />

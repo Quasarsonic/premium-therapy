@@ -13,6 +13,8 @@ export const site = {
   mapQuery: "Via Giuseppe Cattori 3, Paradiso TI",
 } as const;
 
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`;
+
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/servizi", label: "Servizi" },

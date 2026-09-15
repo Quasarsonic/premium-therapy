@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { MapPinIcon } from "@/components/icons/social";
 import { SiteLogo } from "@/components/site-logo";
-import { navLinks, site } from "@/lib/site-data";
+import { mapsUrl, navLinks, site } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
@@ -8,7 +9,19 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
           <Link href="/" className="inline-flex flex-col items-start gap-4">
-            <SiteLogo size="xl" />
+            {/*
+              The logo's centre spheres are solid black, so they disappear
+              against the dark surface. A soft white halo behind gives them
+              something to read against (and the blend has to be off, or
+              lighten would drop them into the background again).
+            */}
+            <span className="relative inline-flex items-center justify-center">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -m-3 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.28),rgba(255,255,255,0.10)_45%,transparent_72%)] blur-lg"
+              />
+              <SiteLogo size="xl" blend={false} className="relative" />
+            </span>
             <span className="font-display text-sm font-semibold tracking-tight">
               Premium Therapy
             </span>
@@ -58,7 +71,19 @@ export function SiteFooter() {
                 @premiumtherapy.ch
               </a>
             </li>
-            <li className="text-muted">{site.studioAddress}</li>
+            <li>
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-start gap-2 text-muted transition-colors hover:text-accent"
+              >
+                <MapPinIcon className="mt-0.5 h-4 w-4 shrink-0 text-accent/60 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:text-accent" />
+                <span className="underline-offset-4 group-hover:underline">
+                  {site.studioAddress}
+                </span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
