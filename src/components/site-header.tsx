@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BrandWordGlow } from "@/components/brand-word-glow";
 import { SiteLogo } from "@/components/site-logo";
 import { navLinks } from "@/lib/site-data";
 
@@ -47,21 +46,15 @@ export function SiteHeader() {
               size={compact ? "sm" : "md"}
               className="transition-all duration-500"
             />
-            <BrandWordGlow
-              className={`overflow-hidden transition-all duration-500 ${
+            <span
+              className={`overflow-hidden whitespace-nowrap font-semibold tracking-tight transition-all duration-500 ${
                 compact
-                  ? "max-w-0 opacity-0 md:max-w-[11rem] md:opacity-100"
-                  : "max-w-[12rem] opacity-100 md:max-w-none"
+                  ? "max-w-0 opacity-0 md:max-w-[9rem] md:opacity-100 md:text-sm"
+                  : "max-w-[12rem] text-base opacity-100 md:max-w-none md:text-[1.05rem]"
               }`}
             >
-              <span
-                className={`block whitespace-nowrap font-semibold tracking-tight ${
-                  compact ? "md:text-sm" : "text-base md:text-[1.05rem]"
-                }`}
-              >
-                Premium Therapy
-              </span>
-            </BrandWordGlow>
+              Premium Therapy
+            </span>
           </Link>
 
           <nav
