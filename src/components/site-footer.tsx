@@ -8,11 +8,8 @@ export function SiteFooter() {
     <footer className="border-t border-white/10 bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3 md:px-6">
         <div>
-          <Link href="/" className="inline-flex flex-col items-start gap-4">
+          <Link href="/" className="inline-flex">
             <SiteLogo size="xl" variant="light" />
-            <span className="font-display text-sm font-semibold tracking-tight">
-              Premium Therapy
-            </span>
           </Link>
         </div>
 

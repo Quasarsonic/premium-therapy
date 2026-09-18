@@ -62,6 +62,7 @@ export function SiteHeader() {
           >
             <SiteLogo
               size={compact ? "sm" : "md"}
+              variant="light"
               className="transition-all duration-500"
             />
             <span
