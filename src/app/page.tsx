@@ -79,7 +79,7 @@ export default function HomePage() {
             Contattaci per fissare la tua seduta in studio, a domicilio o presso le
             strutture partner in Ticino.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <ButtonLink href="/contatti">Vai ai contatti</ButtonLink>
             <Link
               href="/servizi"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPinIcon } from "@/components/icons/social";
+import { InstagramGradientIcon, MapPinIcon } from "@/components/icons/social";
 import { SiteLogo } from "@/components/site-logo";
 import { mapsUrl, navLinks, site } from "@/lib/site-data";
 
@@ -48,16 +48,6 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href={site.instagramHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-accent"
-              >
-                @premiumtherapy.ch
-              </a>
-            </li>
-            <li>
-              <a
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -67,6 +57,17 @@ export function SiteFooter() {
                 <span className="underline-offset-4 group-hover:underline">
                   {site.studioAddress}
                 </span>
+              </a>
+            </li>
+            <li className="pt-1">
+              <a
+                href={site.instagramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-flex transition-transform duration-300 hover:scale-110"
+              >
+                <InstagramGradientIcon className="h-6 w-6" />
               </a>
             </li>
           </ul>
