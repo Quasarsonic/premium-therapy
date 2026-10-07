@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { PillarGrid } from "@/components/pillar-grid";
@@ -29,27 +28,15 @@ export default function HomePage() {
       <section className="border-y border-white/10 bg-surface/50">
         <div className="mx-auto max-w-6xl px-4 py-20 md:px-6">
           <SectionHeading title={about.title} />
-          <div className="mt-10 grid items-start gap-10 md:grid-cols-[minmax(0,280px)_1fr] lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-14">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40">
-              <Image
-                src="/images/gregorio-drei.webp"
-                alt="Gregorio Drei, Premium Therapy"
-                width={682}
-                height={1024}
-                className="h-auto w-full object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 320px"
-              />
-            </div>
-            <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
-              {about.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 40)}
-                  className="text-sm leading-relaxed text-muted md:text-base"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+          <div className="mx-auto mt-10 max-w-3xl space-y-6">
+            {about.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 40)}
+                className="text-sm leading-relaxed text-muted md:text-base"
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </section>

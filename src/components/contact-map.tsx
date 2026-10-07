@@ -10,12 +10,10 @@ export function ContactMap() {
           <iframe
             title="Mappa studio Premium Therapy"
             src={`https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&output=embed`}
-            className="h-full min-h-[340px] w-full scale-[1.02] brightness-[1.1] saturate-[1.4] contrast-[1.05] transition duration-500 group-hover:brightness-[1.14] group-hover:saturate-[1.48]"
+            className="h-full min-h-[340px] w-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(212,255,0,0.05),transparent_45%)]" />
 
           <a
             href={mapsUrl}
